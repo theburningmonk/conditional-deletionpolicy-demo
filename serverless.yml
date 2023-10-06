@@ -1,0 +1,29 @@
+service: conditional-deletionpolicy-demo
+
+plugins:
+  - serverless-plugin-ifelse
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+custom:
+  serverlessIfElse:
+    - If: '"${sls:stage}" != "prod"'
+      Exclude:
+        - resources.Resources.MyTable.DeletionPolicy
+
+resources:
+  Resources:
+    MyTable:
+      Type: AWS::DynamoDB::Table
+      DeletionPolicy: Retain
+      Properties:
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S

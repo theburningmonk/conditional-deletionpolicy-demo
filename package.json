@@ -1,0 +1,16 @@
+{
+  "name": "conditional-deletionpolicy-demo",
+  "version": "1.0.0",
+  "description": "Demo showing how to enable DeletionPolicy conditionally",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless": "^3.35.2",
+    "serverless-plugin-ifelse": "^1.0.7"
+  }
+}
